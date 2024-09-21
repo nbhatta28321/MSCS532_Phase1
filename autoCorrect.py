@@ -1,7 +1,4 @@
-class TrieNode:
-    def __init__(self) -> None:
-        self.child = {} #children nodes
-        self.tail= False #end of nodes marker
+from trieNode import TrieNode
         
 class AutoCorrect:
     def __init__(self):
@@ -35,14 +32,3 @@ class AutoCorrect:
             sugg.extend(self.collect_words(v, input + k))
 
         return sugg
-
-autocorrect = AutoCorrect()
-
-autocorrect.insert("apple")
-autocorrect.insert("app")
-autocorrect.insert("acid")
-autocorrect.insert("aerospace")
-
-a = autocorrect.search("a")
-
-print(a)
