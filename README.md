@@ -1,2 +1,4 @@
 # How to run
-> python3 ./operation.py
+```
+ python3 ./operation.py
+ ```
