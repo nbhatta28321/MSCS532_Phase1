@@ -16,7 +16,7 @@ class AutoCorrect:
     def search(self, input):
         cur = self.root
 
-        for i in input: # check chracters deom the root nodes 
+        for i in input: # check chracters from the root nodes with imput word
             if i not in cur.child: #return empty if not found
                 return self.correction(input) #if the word is incorrect
                 # return []
@@ -34,11 +34,11 @@ class AutoCorrect:
 
         return sugg
     
-    def biagam(self, word):
+    def bigram(self, word):
         return [word[i] + word[i+1] for i in range(len(word)-1)]
     
-    def similarity_ratio(self, a, b):
-        groupA, groupB = self.biagam(a), self.biagam(b)
+    def similarity_ratio(self, a, b): #based on 2 characters bigram, return max similarity
+        groupA, groupB = self.bigram(a), self.bigram(b)
 
         similarity = []
 
@@ -63,7 +63,7 @@ class AutoCorrect:
         sim_words = []
 
         collected_sim_words = self.collect_words(cur.child[word[0]], word[0])
-        for w in collected_sim_words:
+        for w in collected_sim_words: ##campare the ratio with max similarity abd required sim_ratio
 
             temp_sim = self.similarity_ratio(word, w)
 
@@ -73,5 +73,5 @@ class AutoCorrect:
                 max_sim = temp_sim
                 sim_words.append(w)
 
-        return sim_words if max_sim > required_sim_ratio else word      
+        return sim_words if max_sim > required_sim_ratio else []      
 
