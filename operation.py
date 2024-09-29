@@ -2,7 +2,7 @@ from autoCorrect import AutoCorrect
 
 autocorrect = AutoCorrect()
 
-with open('test.txt', 'r') as file:
+with open('words.txt', 'r') as file:
 
     print('Initilizing ...')
 

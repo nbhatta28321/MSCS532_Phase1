@@ -56,7 +56,7 @@ class AutoCorrect:
 
         cur = self.root
         
-        required_sim_ratio = 0.3
+        required_sim_ratio = 0.32
 
         max_sim = 0.0
 
@@ -67,7 +67,7 @@ class AutoCorrect:
 
             temp_sim = self.similarity_ratio(word, w)
 
-            if temp_sim > max_sim or temp_sim > required_sim_ratio:
+            if ( max_sim > required_sim_ratio and temp_sim > required_sim_ratio) or temp_sim > required_sim_ratio:
                 # print(f"The sim ratio of {word} when w={w} is {temp_sim}")
 
                 max_sim = temp_sim
